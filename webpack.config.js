@@ -1,8 +1,8 @@
-const webpack = require('webpack');
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
@@ -48,5 +48,6 @@ module.exports = {
     new MiniCssExtractPlugin(
       {filename: 'style.css'}
     ),
+    new ESLintPlugin()
   ]
 }
