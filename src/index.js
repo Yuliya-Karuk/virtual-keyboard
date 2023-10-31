@@ -1,6 +1,6 @@
-const body = document.querySelector('body');
-const el = document.createElement('h1');
-el.innerHTML = 'Hello';
-body.append(el);
+import App from './js/app';
+
+const newApp = new App();
+newApp.renderKeys();
 
 console.log('test - check eslint, webpack');
