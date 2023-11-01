@@ -1,11 +1,14 @@
 import Key from './key';
 import keyboardKeys from './keyboardKeys';
 import createElementWithProperties from './utils';
+import keysHandlers from './systemKeyHandlers';
 
 class App {
   constructor() {
     this.body = document.querySelector('body');
     this.renderEnvironment();
+    this.bindAreaListener();
+    this.cursor = 0;
   }
 
   renderEnvironment() {
@@ -22,6 +25,7 @@ class App {
       const li = newKeyboardKey.renderKey();
       this.keyboard.append(li);
       if (!newKeyboardKey.systemKey) this.bindPrintKeyListener(newKeyboardKey);
+      if (newKeyboardKey.systemKey) this.bindSystemKeyListener(newKeyboardKey);
     }
   }
 
@@ -31,6 +35,22 @@ class App {
 
   handlePrintKey(key) {
     this.textarea.value += `${key.value}`;
+    this.cursor += 1;
+  }
+
+  bindAreaListener() {
+    this.textarea.addEventListener('click', () => {
+      this.cursor = this.textarea.selectionStart;
+    });
+  }
+
+  bindSystemKeyListener(key) {
+    if (key.name === 'Backspace') {
+      key.button.addEventListener('click', () => {
+        this.textarea.value = keysHandlers.Backspace(this.textarea, this.cursor);
+        this.cursor -= 1;
+      });
+    }
   }
 }
 
