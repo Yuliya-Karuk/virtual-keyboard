@@ -39,6 +39,11 @@ input {
   background-color: transparent;
 }
 
+textarea {
+  border: none;
+  outline: none;
+}
+
 fieldset {
   padding: 0;
   margin: 0;

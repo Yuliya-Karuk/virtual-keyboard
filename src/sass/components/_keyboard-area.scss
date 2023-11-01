@@ -1,0 +1,11 @@
+.keyboard-area {
+  max-width: 1024px;
+  padding: 24px;
+  margin: 0 auto;
+
+  display: block;
+
+  @include font("Inter", 1.8rem, 500, normal, normal);
+  text-align: center;
+  color: #333333;
+}

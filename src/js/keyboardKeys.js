@@ -1,5 +1,5 @@
 const Keys = {
-  Backquote: { en: { usual: '`', shifted: '~' }, ru: { usual: 'ё', shifted: 'Ё' }, system: ['keyboard__button_system'] },
+  Backquote: { en: { usual: '`', shifted: '~' }, ru: { usual: 'ё', shifted: 'Ё' } },
   Digit1: { en: { usual: '1', shifted: '!' }, ru: { usual: '1', shifted: '!' } },
   Digit2: { en: { usual: '2', shifted: '@' }, ru: { usual: '2', shifted: '"' } },
   Digit3: { en: { usual: '3', shifted: '#' }, ru: { usual: '3', shifted: '№' } },
