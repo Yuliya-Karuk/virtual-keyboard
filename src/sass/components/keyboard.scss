@@ -1,9 +1,11 @@
 .keyboard {
-  max-width: 1072px;
+  max-width: 1024px;
   padding: 24px;
+  margin: 0 auto;
 
   display: flex;
   flex-wrap: wrap;
+  gap: 4px;
 
   border-radius: 16px;
   border: 2px solid rgba(0, 0, 0, 0.20);
@@ -12,14 +14,9 @@
 }
 
 .keyboard__item {
-  width: 64px;
-  height: 64px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
-  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.40);
 }
 
 .keyboard__button {
@@ -28,24 +25,100 @@
   height: 60px;
   border-radius: 3px;
   background: #696969;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.40);
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @extend %transition;
+
+  &_system {
+    background: #333333;
+  }
+  &_first {
+    width: 76px;
+  }
+  &_second {
+    width: 92px;
+  }
+  &_third {
+    width: 108px;
+  }
+  &_fourth {
+    width: 124px;
+  }
+  &_fifth {
+    width: 140px;
+  }
+  &_six {
+    width: 396px;
+  }
+  &:hover {
+    box-shadow: 0px 1px 2px 0px rgba(0,255,255,0.7),
+                1px 2px 4px 0px rgba(0,255,255,0.7),
+                1px 2px 4px 0px rgba(0,255,255,0.7),
+                2px 4px 8px 0px rgba(0,255,255,0.7);
+    // box-shadow: 0px 1px 2px 0px rgba(0, 255, 255, 0.7),
+    //     1px 2px 4px 0px rgba(0, 255, 255, 0.7),
+    //     2px 4px 8px 0px rgba(0, 255, 255, 0.7),
+    //     2px 4px 16px 0px rgba(0, 255, 255, 0.7);
+  }
+  &:active {
+    transform: translateY(2px);
+    box-shadow: inset 0px 2px 4px 1px rgba(0, 0, 0, 0.5);
+  }
 }
 
 .keyboard__top {
   display: block;
   width: 100%;
   height: 8px;
-  background: center no-repeat url("../img/icons/Highlight.svg");
+  background: center no-repeat url("../img/icons/top.svg");
+
+  .keyboard__button_first & {
+    background: center no-repeat url("../img/icons/top1.svg");
+  }
+  .keyboard__button_second & {
+    background: center no-repeat url("../img/icons/top2.svg");
+  }
+  .keyboard__button_third & {
+    background: center no-repeat url("../img/icons/top3.svg");;
+  }
+  .keyboard__button_fourth & {
+    background: center no-repeat url("../img/icons/top4.svg")
+  }
+  .keyboard__button_fifth & {
+    background: center no-repeat url("../img/icons/top5.svg");
+  }
+  .keyboard__button_six & {
+    background: center no-repeat url("../img/icons/top6.svg");;
+  }
 }
 
 .keyboard__bottom {
   display: block;
   width: 100%;
   height: 17px;
-  background: center no-repeat url("../img/icons/Shadow.svg");
+  background: center no-repeat url("../img/icons/bottom.svg");
+
+  .keyboard__button_first & {
+    background: center no-repeat url("../img/icons/bottom1.svg");
+  }
+  .keyboard__button_second & {
+    background: center no-repeat url("../img/icons/bottom2.svg");
+  }
+  .keyboard__button_third & {
+    background: center no-repeat url("../img/icons/bottom3.svg");;
+  }
+  .keyboard__button_fourth & {
+    background: center no-repeat url("../img/icons/bottom4.svg");
+  }
+  .keyboard__button_fifth & {
+    background: center no-repeat url("../img/icons/bottom5.svg")
+  }
+  .keyboard__button_six & {
+    background: center no-repeat url("../img/icons/bottom6.svg");;
+  }
 }
 
 .keyboard__label {
@@ -63,4 +136,27 @@
   border-radius: 5px;
   border: 1px solid rgba(255, 255, 255, 0.30);
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.20) 100%);
+
+  .keyboard__button_system & {
+    font-size: 1.4rem;
+  }
+
+  .keyboard__button_first & {
+    width: 60px;
+  }
+  .keyboard__button_second & {
+    width: 76px;
+  }
+  .keyboard__button_third & {
+    width: 92px;
+  }
+  .keyboard__button_fourth & {
+    width: 108px;
+  }
+  .keyboard__button_fifth & {
+    width: 124px;
+  }
+  .keyboard__button_six & {
+    width: 380px;
+  }
 }
