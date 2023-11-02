@@ -21,11 +21,17 @@ class Key {
     }
     const topSpan = createElementWithProperties('span', 'keyboard__top');
     const bottomSpan = createElementWithProperties('span', 'keyboard__bottom');
-    const keyValue = createElementWithProperties('div', 'keyboard__label');
-    keyValue.innerText = this.value;
-    this.button.append(topSpan, bottomSpan, keyValue);
+    this.buttonLabel = createElementWithProperties('div', 'keyboard__label');
+    this.buttonLabel.innerText = this.value;
+    this.button.append(topSpan, bottomSpan, this.buttonLabel);
     li.append(this.button);
     return li;
+  }
+
+  toggleShift(shift) {
+    if (shift) this.value = this.enShifted;
+    if (!shift) this.value = this.enValue;
+    this.buttonLabel.innerText = this.value;
   }
 }
 

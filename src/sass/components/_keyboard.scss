@@ -53,7 +53,8 @@
   &_six {
     width: 396px;
   }
-  &:hover {
+  &:hover,
+  &_shifted {
     box-shadow: 0px 1px 2px 0px rgba(0,255,255,0.7),
                 1px 2px 4px 0px rgba(0,255,255,0.7),
                 1px 2px 4px 0px rgba(0,255,255,0.7),
@@ -63,10 +64,14 @@
     //     2px 4px 8px 0px rgba(0, 255, 255, 0.7),
     //     2px 4px 16px 0px rgba(0, 255, 255, 0.7);
   }
+  // &_shifted {
+  //   background: rgba(0, 255, 255, 0.5);
+  // }
   &:active {
     transform: translateY(2px);
     box-shadow: inset 0px 2px 4px 1px rgba(0, 0, 0, 0.5);
   }
+
 }
 
 .keyboard__top {
