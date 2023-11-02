@@ -1,5 +1,5 @@
 const Keys = {
-  Backquote: { en: { usual: '`', shifted: '~' }, ru: { usual: 'ё', shifted: 'Ё' } },
+  Backquote: { en: { usual: '`', shifted: '~' }, ru: { usual: 'ё', shifted: 'Ё' }, system: 'keyboard__button_system' },
   Digit1: { en: { usual: '1', shifted: '!' }, ru: { usual: '1', shifted: '!' } },
   Digit2: { en: { usual: '2', shifted: '@' }, ru: { usual: '2', shifted: '"' } },
   Digit3: { en: { usual: '3', shifted: '#' }, ru: { usual: '3', shifted: '№' } },
@@ -12,10 +12,14 @@ const Keys = {
   Digit0: { en: { usual: '0', shifted: ')' }, ru: { usual: '0', shifted: ')' } },
   Minus: { en: { usual: '-', shifted: '_' }, ru: { usual: '-', shifted: '_' } },
   Equal: { en: { usual: '=', shifted: '+' }, ru: { usual: '=', shifted: '+' } },
-  Backspace: { en: { usual: '←', shifted: '←' }, ru: { usual: '←', shifted: '←' }, system: ['keyboard__button_system', 'keyboard__button_first'] },
-  Delete: { en: { usual: 'Del', shifted: 'Del' }, ru: { usual: 'Del', shifted: 'Del' }, system: ['keyboard__button_system'] },
+  Backspace: {
+    en: { usual: '←', shifted: '←' }, ru: { usual: '←', shifted: '←' }, system: 'keyboard__button_system', size: 'keyboard__button_first',
+  },
+  Delete: { en: { usual: 'Del', shifted: 'Del' }, ru: { usual: 'Del', shifted: 'Del' }, system: 'keyboard__button_system' },
 
-  Tab: { en: { usual: 'Tab ⇥', shifted: 'Tab ⇥' }, ru: { usual: 'Tab ⇥', shifted: 'Tab ⇥' }, system: ['keyboard__button_system', 'keyboard__button_second'] },
+  Tab: {
+    en: { usual: 'Tab ⇥', shifted: 'Tab ⇥' }, ru: { usual: 'Tab ⇥', shifted: 'Tab ⇥' }, system: 'keyboard__button_system', size: 'keyboard__button_second',
+  },
   KeyQ: { en: { usual: 'q', shifted: 'Q' }, ru: { usual: 'й', shifted: 'Й' } },
   KeyW: { en: { usual: 'w', shifted: 'W' }, ru: { usual: 'ц', shifted: 'Ц' } },
   KeyE: { en: { usual: 'e', shifted: 'E' }, ru: { usual: 'у', shifted: 'У' } },
@@ -28,9 +32,11 @@ const Keys = {
   KeyP: { en: { usual: 'p', shifted: 'P' }, ru: { usual: 'з', shifted: 'З' } },
   BracketLeft: { en: { usual: '[', shifted: '{' }, ru: { usual: 'х', shifted: 'Х' } },
   BracketRight: { en: { usual: ']', shifted: '}' }, ru: { usual: 'ъ', shifted: 'Ъ' } },
-  Backslash: { en: { usual: '\\', shifted: '|' }, ru: { usual: '\\', shifted: '/' }, system: ['keyboard__button_third'] },
+  Backslash: { en: { usual: '\\', shifted: '|' }, ru: { usual: '\\', shifted: '/' }, size: 'keyboard__button_third' },
 
-  CapsLock: { en: { usual: 'CapsLock', shifted: 'CapsLock' }, ru: { usual: 'CapsLock', shifted: 'CapsLock' }, system: ['keyboard__button_system', 'keyboard__button_fourth'] },
+  CapsLock: {
+    en: { usual: 'CapsLock', shifted: 'CapsLock' }, ru: { usual: 'CapsLock', shifted: 'CapsLock' }, system: 'keyboard__button_system', size: 'keyboard__button_fourth',
+  },
   KeyA: { en: { usual: 'a', shifted: 'A' }, ru: { usual: 'ф', shifted: 'Ф' } },
   KeyS: { en: { usual: 's', shifted: 'S' }, ru: { usual: 'ы', shifted: 'Ы' } },
   KeyD: { en: { usual: 'd', shifted: 'D' }, ru: { usual: 'в', shifted: 'В' } },
@@ -42,9 +48,13 @@ const Keys = {
   KeyL: { en: { usual: 'l', shifted: 'L' }, ru: { usual: 'д', shifted: 'Д' } },
   Semicolon: { en: { usual: ';', shifted: ':' }, ru: { usual: 'ж', shifted: 'Ж' } },
   Quote: { en: { usual: "'", shifted: '"' }, ru: { usual: 'э', shifted: 'Э' } },
-  Enter: { en: { usual: 'Enter ↩', shifted: 'Enter ↩' }, ru: { usual: 'Enter ↩', shifted: 'Enter ↩' }, system: ['keyboard__button_system', 'keyboard__button_fifth'] },
+  Enter: {
+    en: { usual: 'Enter ↩', shifted: 'Enter ↩' }, ru: { usual: 'Enter ↩', shifted: 'Enter ↩' }, system: 'keyboard__button_system', size: 'keyboard__button_fifth',
+  },
 
-  ShiftLeft: { en: { usual: '⇧ Shift', shifted: '⇧ Shift' }, ru: { usual: '⇧ Shift', shifted: '⇧ Shift' }, system: ['keyboard__button_system', 'keyboard__button_fifth'] },
+  ShiftLeft: {
+    en: { usual: '⇧ Shift', shifted: '⇧ Shift' }, ru: { usual: '⇧ Shift', shifted: '⇧ Shift' }, system: 'keyboard__button_system', size: 'keyboard__button_fifth',
+  },
   KeyZ: { en: { usual: 'z', shifted: 'Z' }, ru: { usual: 'я', shifted: 'Я' } },
   KeyX: { en: { usual: 'x', shifted: 'X' }, ru: { usual: 'ч', shifted: 'Ч' } },
   KeyC: { en: { usual: 'c', shifted: 'C' }, ru: { usual: 'с', shifted: 'С' } },
@@ -55,18 +65,28 @@ const Keys = {
   Comma: { en: { usual: ',', shifted: '<' }, ru: { usual: 'б', shifted: 'Б' } },
   Period: { en: { usual: '.', shifted: '>' }, ru: { usual: 'ю', shifted: 'Ю' } },
   Slash: { en: { usual: '/', shifted: '?' }, ru: { usual: '.', shifted: ',' } },
-  ArrowUp: { en: { usual: '↑', shifted: '↑' }, ru: { usual: '↑', shifted: '↑' }, system: ['keyboard__button_system'] },
-  ShiftRight: { en: { usual: '⇧ Shift', shifted: '⇧ Shift' }, ru: { usual: '⇧ Shift', shifted: '⇧ Shift' }, system: ['keyboard__button_system', 'keyboard__button_fourth'] },
+  ArrowUp: { en: { usual: '↑', shifted: '↑' }, ru: { usual: '↑', shifted: '↑' }, system: 'keyboard__button_system' },
+  ShiftRight: {
+    en: { usual: '⇧ Shift', shifted: '⇧ Shift' }, ru: { usual: '⇧ Shift', shifted: '⇧ Shift' }, system: 'keyboard__button_system', size: 'keyboard__button_fourth',
+  },
 
-  ControlLeft: { en: { usual: '⌃ Ctrl', shifted: '⌃ Ctrl' }, ru: { usual: '⌃ Ctrl', shifted: '⌃ Ctrl' }, system: ['keyboard__button_system', 'keyboard__button_first'] },
-  MetaLeft: { en: { usual: '⊞ Win', shifted: '⊞ Win' }, ru: { usual: '⊞ Win', shifted: '⊞ Win' }, system: ['keyboard__button_system', 'keyboard__button_first'] },
-  AltLeft: { en: { usual: '⌥ Alt', shifted: '⌥ Alt' }, ru: { usual: '⌥ Alt', shifted: '⌥ Alt' }, system: ['keyboard__button_system', 'keyboard__button_first'] },
-  Space: { en: { usual: ' ', shifted: ' ' }, ru: { usual: ' ', shifted: ' ' }, system: ['keyboard__button_six'] },
-  AltRight: { en: { usual: '⌥ Alt', shifted: '⌥ Alt' }, ru: { usual: '⌥ Alt', shifted: '⌥ Alt' }, system: ['keyboard__button_system', 'keyboard__button_first'] },
-  ArrowLeft: { en: { usual: '<-', shifted: '<-' }, ru: { usual: '<-', shifted: '<-' }, system: ['keyboard__button_system'] },
-  ArrowDown: { en: { usual: '↓', shifted: '↓' }, ru: { usual: '↓', shifted: '↓' }, system: ['keyboard__button_system'] },
-  ArrowRight: { en: { usual: '->', shifted: '->' }, ru: { usual: '->', shifted: '->' }, system: ['keyboard__button_system'] },
-  ControlRight: { en: { usual: '⌃ Ctrl', shifted: '⌃ Ctrl' }, ru: { usual: '⌃ Ctrl', shifted: '⌃ Ctrl' }, system: ['keyboard__button_system'] },
+  ControlLeft: {
+    en: { usual: '⌃ Ctrl', shifted: '⌃ Ctrl' }, ru: { usual: '⌃ Ctrl', shifted: '⌃ Ctrl' }, system: 'keyboard__button_system', size: 'keyboard__button_first',
+  },
+  MetaLeft: {
+    en: { usual: '⊞ Win', shifted: '⊞ Win' }, ru: { usual: '⊞ Win', shifted: '⊞ Win' }, system: 'keyboard__button_system', size: 'keyboard__button_first',
+  },
+  AltLeft: {
+    en: { usual: '⌥ Alt', shifted: '⌥ Alt' }, ru: { usual: '⌥ Alt', shifted: '⌥ Alt' }, system: 'keyboard__button_system', size: 'keyboard__button_first',
+  },
+  Space: { en: { usual: ' ', shifted: ' ' }, ru: { usual: ' ', shifted: ' ' }, size: 'keyboard__button_six' },
+  AltRight: {
+    en: { usual: '⌥ Alt', shifted: '⌥ Alt' }, ru: { usual: '⌥ Alt', shifted: '⌥ Alt' }, system: 'keyboard__button_system', size: 'keyboard__button_first',
+  },
+  ArrowLeft: { en: { usual: '<-', shifted: '<-' }, ru: { usual: '<-', shifted: '<-' }, system: 'keyboard__button_system' },
+  ArrowDown: { en: { usual: '↓', shifted: '↓' }, ru: { usual: '↓', shifted: '↓' }, system: 'keyboard__button_system' },
+  ArrowRight: { en: { usual: '->', shifted: '->' }, ru: { usual: '->', shifted: '->' }, system: 'keyboard__button_system' },
+  ControlRight: { en: { usual: '⌃ Ctrl', shifted: '⌃ Ctrl' }, ru: { usual: '⌃ Ctrl', shifted: '⌃ Ctrl' }, system: 'keyboard__button_system' },
 };
 
 export default Keys;
