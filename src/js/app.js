@@ -34,7 +34,7 @@ class App {
   }
 
   handlePrintKey(key) {
-    this.textarea.value += `${key.value}`;
+    this.textarea.value = `${this.textarea.value.slice(0, this.cursor)}${key.value}${this.textarea.value.slice(this.cursor)}`;
     this.cursor += 1;
   }
 
@@ -49,6 +49,15 @@ class App {
       key.button.addEventListener('click', () => {
         this.textarea.value = keysHandlers.Backspace(this.textarea, this.cursor);
         this.cursor -= 1;
+      });
+    }
+    if (key.name === 'Tab') {
+      key.button.addEventListener('click', () => {
+        const tabEnd = this.textarea.selectionEnd;
+        this.textarea.value = keysHandlers.Tab(this.textarea, this.cursor);
+        this.textarea.selectionEnd = tabEnd + 1;
+        this.textarea.selectionStart = this.textarea.selectionEnd;
+        this.cursor = this.textarea.selectionStart;
       });
     }
   }
