@@ -60,6 +60,17 @@ class App {
         this.cursor = this.textarea.selectionStart;
       });
     }
+    if (key.name === 'Delete') {
+      key.button.addEventListener('click', () => {
+        this.textarea.value = keysHandlers.Delete(this.textarea, this.cursor);
+      });
+    }
+    if (key.name === 'Enter') {
+      key.button.addEventListener('click', () => {
+        this.textarea.value = keysHandlers.Enter(this.textarea, this.cursor);
+        this.cursor += 1;
+      });
+    }
   }
 }
 

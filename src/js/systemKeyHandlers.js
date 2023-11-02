@@ -9,6 +9,14 @@ const keysHandlers = {
     const newValue = `${textarea.value.substring(0, cursor)}\t${textarea.value.substring(cursor)}`;
     return newValue;
   },
+  Delete: (textarea, cursor) => {
+    const newValue = `${textarea.value.substring(0, cursor)}${textarea.value.substring(cursor + 1)}`;
+    return newValue;
+  },
+  Enter: (textarea, cursor) => {
+    const newValue = `${textarea.value.substring(0, cursor)}\n${textarea.value.substring(cursor)}`;
+    return newValue;
+  },
 };
 
 export default keysHandlers;
