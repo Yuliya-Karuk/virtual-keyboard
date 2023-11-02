@@ -2,7 +2,7 @@ import Key from './key';
 import keyboardKeys from './keyboardKeys';
 import keysHandlers from './systemKeyHandlers';
 
-class Keyboard {
+class VirtualKeyboard {
   constructor(keyboardList, textarea) {
     this.keyboardList = keyboardList;
     this.textarea = textarea;
@@ -10,8 +10,10 @@ class Keyboard {
     this.keyboard = [];
     this.isCapsPressed = false;
     this.shiftKeys = [];
+    this.langIsChanged = false;
 
     this.bindAreaListener();
+    this.bindRealKeyboardListeners();
   }
 
   bindAreaListener() {
@@ -102,6 +104,40 @@ class Keyboard {
     this.isCapsPressed = !this.isCapsPressed;
     this.changeKeyCase(this.isCapsPressed);
   }
+
+  bindRealKeyboardListeners() {
+    document.addEventListener('keydown', (e) => this.handleKeyDown(e));
+    document.addEventListener('keyup', (e) => this.handleKeyUp(e));
+  }
+
+  handleKeyDown(e) {
+    e.preventDefault();
+    if ((e.code === 'AltLeft' && e.ctrlKey) || (e.code === 'ControlLeft' && e.altKey)) {
+      this.changeLang();
+    }
+    for (let i = 0; i < this.keyboard.length; i += 1) {
+      if (e.code === this.keyboard[i].name) {
+        if (e.code !== 'CapsLock') this.keyboard[i].press();
+      }
+    }
+  }
+
+  changeLang() {
+    this.langIsChanged = !this.langIsChanged;
+    for (let i = 0; i < this.keyboard.length; i += 1) {
+      this.keyboard[i].toggleLanguage(this.langIsChanged);
+    }
+  }
+
+  handleKeyUp(e) {
+    e.preventDefault();
+    for (let i = 0; i < this.keyboard.length; i += 1) {
+      if (e.code === this.keyboard[i].name) {
+        this.keyboard[i].button.click();
+        if (e.code !== 'CapsLock') this.keyboard[i].unpress();
+      }
+    }
+  }
 }
 
-export default Keyboard;
+export default VirtualKeyboard;

@@ -1,4 +1,4 @@
-import Keyboard from './keyboard';
+import VirtualKeyboard from './keyboard';
 import createElementWithProperties from './utils';
 
 class App {
@@ -11,8 +11,8 @@ class App {
     this.textarea = createElementWithProperties('textarea', 'keyboard-area', { rows: 5, cols: 60 });
     this.body.append(this.textarea);
     this.body.append(this.keyboardList);
-    this.keyboard = new Keyboard(this.keyboardList, this.textarea);
-    this.keyboard.renderKeys();
+    this.virtualKeyboard = new VirtualKeyboard(this.keyboardList, this.textarea);
+    this.virtualKeyboard.renderKeys();
   }
 }
 
