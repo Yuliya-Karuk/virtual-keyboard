@@ -12,7 +12,7 @@ class App {
     this.body.append(this.textarea);
     this.body.append(this.keyboardList);
     this.virtualKeyboard = new VirtualKeyboard(this.keyboardList, this.textarea);
-    this.virtualKeyboard.renderKeys();
+    this.virtualKeyboard.init();
   }
 }
 

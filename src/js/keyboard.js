@@ -11,7 +11,10 @@ class VirtualKeyboard {
     this.isCapsPressed = false;
     this.shiftKeys = [];
     this.langIsChanged = false;
+  }
 
+  init() {
+    this.renderKeys();
     this.bindAreaListener();
     this.bindRealKeyboardListeners();
   }
@@ -28,6 +31,9 @@ class VirtualKeyboard {
       const newKey = new Key(keyboardKeys[keyName], keyName);
       this.keyboard.push(newKey);
       this.keyboardList.append(newKey.renderKey());
+      if (newKey.name === 'ShiftLeft' || newKey.name === 'ShiftRight') {
+        this.shiftKeys.push(newKey);
+      }
       if (!newKey.systemKey) this.bindPrintKeyListener(newKey);
       if (newKey.systemKey) this.bindSystemKeyListener(newKey);
     }
@@ -46,51 +52,43 @@ class VirtualKeyboard {
   }
 
   bindSystemKeyListener(key) {
-    if (key.name === 'Backspace') {
-      key.button.addEventListener('click', () => {
-        this.textarea.value = keysHandlers.Backspace(this.textarea, this.cursor);
-        this.cursor -= 1;
-      });
-    }
-    if (key.name === 'Tab') {
-      key.button.addEventListener('click', () => {
-        const tabEnd = this.textarea.selectionEnd;
-        this.textarea.value = keysHandlers.Tab(this.textarea, this.cursor);
-        this.textarea.selectionEnd = tabEnd + 1;
-        this.textarea.selectionStart = this.textarea.selectionEnd;
-        this.cursor = this.textarea.selectionStart;
-      });
-    }
-    if (key.name === 'Delete') {
-      key.button.addEventListener('click', () => {
-        this.textarea.value = keysHandlers.Delete(this.textarea, this.cursor);
-      });
-    }
-    if (key.name === 'Enter') {
-      key.button.addEventListener('click', () => {
-        this.textarea.value = keysHandlers.Enter(this.textarea, this.cursor);
-        this.cursor += 1;
-      });
-    }
-    if (key.name === 'CapsLock') {
-      key.button.addEventListener('click', () => this.toggleKeysWithCaps(key));
-    }
-    if (key.name === 'ShiftLeft' || key.name === 'ShiftRight') {
-      this.shiftKeys.push(key);
-      key.button.addEventListener('click', () => this.pressShiftKey(key));
-    }
-    if (key.name === 'ArrowDown') {
-      key.button.addEventListener('click', () => this.move('forward', 'line'));
-    }
-    if (key.name === 'ArrowUp') {
-      key.button.addEventListener('click', () => this.move('backward', 'line'));
-    }
-    if (key.name === 'ArrowRight') {
-      key.button.addEventListener('click', () => this.move('forward', 'character'));
-    }
-    if (key.name === 'ArrowLeft') {
-      key.button.addEventListener('click', () => this.move('backward', 'character'));
-    }
+    key.button.addEventListener('click', () => this.handleSystemKey(key));
+  }
+
+  handleSystemKey(key) {
+    if (key.name === 'Backspace') this.handleBackspace();
+    if (key.name === 'Tab') this.handleTab();
+    if (key.name === 'Delete') this.handleDelete();
+    if (key.name === 'Enter') this.handleEnter();
+    if (key.name === 'CapsLock') this.toggleKeysWithCaps(key);
+    if (key.name === 'ShiftLeft' || key.name === 'ShiftRight') this.pressShiftKey(key);
+    if (key.name === 'ArrowDown') this.move('forward', 'line');
+    if (key.name === 'ArrowUp') this.move('backward', 'line');
+    if (key.name === 'ArrowRight') this.move('forward', 'character');
+    if (key.name === 'ArrowLeft') this.move('backward', 'character');
+    this.textarea.focus();
+  }
+
+  handleBackspace() {
+    this.textarea.value = keysHandlers.Backspace(this.textarea, this.cursor);
+    this.cursor -= 1;
+  }
+
+  handleTab() {
+    const tabEnd = this.textarea.selectionEnd;
+    this.textarea.value = keysHandlers.Tab(this.textarea, this.cursor);
+    this.textarea.selectionEnd = tabEnd + 1;
+    this.textarea.selectionStart = this.textarea.selectionEnd;
+    this.cursor = this.textarea.selectionStart;
+  }
+
+  handleDelete() {
+    this.textarea.value = keysHandlers.Delete(this.textarea, this.cursor);
+  }
+
+  handleEnter() {
+    this.textarea.value = keysHandlers.Enter(this.textarea, this.cursor);
+    this.cursor += 1;
   }
 
   changeKeyCase(isShifted) {
