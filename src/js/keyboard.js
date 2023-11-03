@@ -41,6 +41,8 @@ class VirtualKeyboard {
     this.textarea.value = `${this.textarea.value.slice(0, this.cursor)}${key.value}${this.textarea.value.slice(this.cursor)}`;
     this.cursor += 1;
     if (this.isShiftPressed) this.releaseShiftKey();
+    this.textarea.focus();
+    this.textarea.setSelectionRange(this.cursor, this.cursor);
   }
 
   bindSystemKeyListener(key) {
@@ -76,6 +78,18 @@ class VirtualKeyboard {
     if (key.name === 'ShiftLeft' || key.name === 'ShiftRight') {
       this.shiftKeys.push(key);
       key.button.addEventListener('click', () => this.pressShiftKey(key));
+    }
+    if (key.name === 'ArrowDown') {
+      key.button.addEventListener('click', () => this.move('forward', 'line'));
+    }
+    if (key.name === 'ArrowUp') {
+      key.button.addEventListener('click', () => this.move('backward', 'line'));
+    }
+    if (key.name === 'ArrowRight') {
+      key.button.addEventListener('click', () => this.move('forward', 'character'));
+    }
+    if (key.name === 'ArrowLeft') {
+      key.button.addEventListener('click', () => this.move('backward', 'character'));
     }
   }
 
@@ -135,8 +149,16 @@ class VirtualKeyboard {
       if (e.code === this.keyboard[i].name) {
         this.keyboard[i].button.click();
         if (e.code !== 'CapsLock') this.keyboard[i].unpress();
+        this.textarea.focus();
       }
     }
+  }
+
+  move(direction, type) {
+    const selection = window.getSelection();
+    selection.modify('move', direction, type);
+    this.cursor = this.textarea.selectionStart;
+    this.textarea.focus();
   }
 }
 
