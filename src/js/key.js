@@ -1,13 +1,18 @@
 import { createElementWithProperties } from './utils';
 
 class Key {
-  constructor(data, name) {
+  constructor(data, name, language) {
     this.name = name;
-    this.firstLang = data.en;
-    this.secondLang = data.ru;
-    this.language = this.firstLang;
-    this.usualValue = this.language.usual;
-    this.shiftedValue = this.language.shifted;
+    // this.firstLang = data.en;
+    // this.secondLang = data.ru;
+    // this.language = this.firstLang;
+    // this.usualValue = this.language.usual;
+    // this.shiftedValue = this.language.shifted;
+    // this.value = this.usualValue;
+    this.language = language;
+    this.data = data;
+    this.usualValue = this.data[this.language].usual;
+    this.shiftedValue = this.data[this.language].shifted;
     this.value = this.usualValue;
     this.size = data.size;
     this.systemKey = data.system;
@@ -35,10 +40,9 @@ class Key {
   }
 
   toggleLanguage(lang) {
-    if (lang) this.language = this.secondLang;
-    if (!lang) this.language = this.firstLang;
-    this.usualValue = this.language.usual;
-    this.shiftedValue = this.language.shifted;
+    this.language = lang;
+    this.usualValue = this.data[this.language].usual;
+    this.shiftedValue = this.data[this.language].shifted;
     this.value = this.usualValue;
     this.buttonLabel.innerText = this.value;
   }

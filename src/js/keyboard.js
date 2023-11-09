@@ -10,10 +10,12 @@ class VirtualKeyboard {
     this.keyboard = [];
     this.isCapsPressed = false;
     this.shiftKeys = [];
-    this.langIsChanged = false;
+    this.firstLang = true;
+    this.language = 'en';
   }
 
   init() {
+    this.checkLanguage();
     this.renderKeys();
     this.bindAreaListener();
     this.bindRealKeyboardListeners();
@@ -28,7 +30,7 @@ class VirtualKeyboard {
   renderKeys() {
     for (let i = 0; i < Object.keys(keyboardKeys).length; i += 1) {
       const keyName = Object.keys(keyboardKeys)[i];
-      const newKey = new Key(keyboardKeys[keyName], keyName);
+      const newKey = new Key(keyboardKeys[keyName], keyName, this.language);
       this.keyboard.push(newKey);
       this.keyboardList.append(newKey.renderKey());
       if (newKey.name === 'ShiftLeft' || newKey.name === 'ShiftRight') {
@@ -41,6 +43,15 @@ class VirtualKeyboard {
 
   bindPrintKeyListener(key) {
     key.button.addEventListener('click', () => this.handlePrintKey(key));
+  }
+
+  checkLanguage() {
+    if (localStorage.getItem('keyboardLang')) {
+      this.language = localStorage.getItem('keyboardLang');
+      this.firstLang = (this.language === 'en');
+    } else {
+      localStorage.setItem('keyboardLang', this.language);
+    }
   }
 
   handlePrintKey(key) {
@@ -137,9 +148,12 @@ class VirtualKeyboard {
   }
 
   changeLang() {
-    this.langIsChanged = !this.langIsChanged;
+    this.firstLang = !this.firstLang;
+    if (this.firstLang) this.language = 'en';
+    if (!this.firstLang) this.language = 'ru';
+    localStorage.setItem('keyboardLang', this.language);
     for (let i = 0; i < this.keyboard.length; i += 1) {
-      this.keyboard[i].toggleLanguage(this.langIsChanged);
+      this.keyboard[i].toggleLanguage(this.language);
     }
   }
 
