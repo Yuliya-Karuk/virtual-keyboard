@@ -1,4 +1,5 @@
-import createElementWithProperties from './utils';
+import { createElementWithProperties } from './utils';
+import Rain from './rain';
 
 class Background {
   constructor(body) {
@@ -11,11 +12,13 @@ class Background {
   renderElements() {
     this.section = createElementWithProperties('section', 'layers');
     this.layersList = createElementWithProperties('div', 'layers__list');
-    const canvas = createElementWithProperties('canvas', 'rain');
     this.section.append(this.layersList);
     for (let i = 1; i <= this.layersNumber; i += 1) {
       const layer = createElementWithProperties('div', `layer__item layer__item_${i}`);
-      if (i === 3) layer.append(canvas);
+      if (i === 3) {
+        this.rain = new Rain(layer);
+        this.rain.updateRain();
+      }
       this.layersList.append(layer);
     }
     return this.section;

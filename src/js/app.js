@@ -1,5 +1,5 @@
 import VirtualKeyboard from './keyboard';
-import createElementWithProperties from './utils';
+import { createElementWithProperties } from './utils';
 import Background from './background';
 
 class App {

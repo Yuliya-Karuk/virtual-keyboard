@@ -1,4 +1,4 @@
-export default function createElementWithProperties(el, elClassName, attr) {
+export function createElementWithProperties(el, elClassName, attr) {
   const element = document.createElement(el);
   element.className = elClassName;
   if (attr) {
@@ -8,6 +8,10 @@ export default function createElementWithProperties(el, elClassName, attr) {
     }
   }
   return element;
+}
+
+export function randomNum(min, max) {
+  return Math.floor(Math.random() * max) + min;
 }
 
 // export default function createElementWithProperties(el, elClassName, parentEl, props, attr) {

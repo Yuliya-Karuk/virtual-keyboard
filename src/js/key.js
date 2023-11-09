@@ -1,4 +1,4 @@
-import createElementWithProperties from './utils';
+import { createElementWithProperties } from './utils';
 
 class Key {
   constructor(data, name) {
