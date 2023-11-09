@@ -249,7 +249,12 @@
 
   .keyboard__button_system & {
     font-size: 1.4rem;
-    font-size: 0.75rem;
+    @include media-desktop {
+      font-size: 1.2rem;
+    }
+    @include media-tablet {
+      font-size: 0.75rem;
+    }
   }
 
   .keyboard__button_first & {

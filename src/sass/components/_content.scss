@@ -35,6 +35,9 @@
   @include media-desktop {
     font-size: 1.4rem;
   }
+  @include media-tablet {
+    font-size: 1.3rem;
+  }
   @include media-mobile {
     font-size: 1.2rem;
   }
