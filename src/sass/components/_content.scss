@@ -1,0 +1,41 @@
+.content {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  @include media-desktop {
+    padding: 20px 0;
+  }
+
+  @include media-mobile {
+    width: unset;
+  }
+}
+
+.keyboard-area {
+  padding: 24px;
+  margin: 0 auto;
+
+  display: block;
+
+  @include font("Inter", 2rem, 500, normal, normal);
+  text-align: center;
+  color: #333333;
+
+  border-radius: 2vw;
+  background-color: rgba(255, 255, 255, 0.5);
+
+  resize: none;
+  @include media-desktop {
+    font-size: 1.4rem;
+  }
+  @include media-mobile {
+    font-size: 1.2rem;
+  }
+}

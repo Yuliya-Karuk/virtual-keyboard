@@ -3,24 +3,19 @@ import createElementWithProperties from './utils';
 class Background {
   constructor(body) {
     this.body = body;
-    this.layersNumber = 6;
-    this.layers = [];
+    this.layersNumber = 5;
     this.renderElements();
     this.bindMouseListener();
   }
 
   renderElements() {
     this.section = createElementWithProperties('section', 'layers');
-    const title = createElementWithProperties('h1', 'layers__title');
-    title.innerText = 'Virtual Keyboard';
     this.layersList = createElementWithProperties('div', 'layers__list');
     const canvas = createElementWithProperties('canvas', 'rain');
     this.section.append(this.layersList);
     for (let i = 1; i <= this.layersNumber; i += 1) {
       const layer = createElementWithProperties('div', `layer__item layer__item_${i}`);
-      this.layers.push(layer);
-      if (i === 3) layer.append(title);
-      if (i === 4) layer.append(canvas);
+      if (i === 3) layer.append(canvas);
       this.layersList.append(layer);
     }
     return this.section;

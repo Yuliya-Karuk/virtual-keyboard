@@ -1,9 +1,4 @@
 .keyboard {
-  position: absolute;
-  bottom: 5vh;
-  left: 0;
-  right: 0;
-
   width: 1024px;
   padding: 24px;
   margin: 0 auto;
@@ -16,6 +11,17 @@
   border: 2px solid rgba(0, 0, 0, 0.20);
   background: linear-gradient(97deg, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.00) 100%), url("../img/bg.png");
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.16), 0px 6px 24px 0px rgba(0, 0, 0, 0.14), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+  @include media-desktop {
+    width: 768px;
+    padding: 17px;
+    gap: 3px;
+  }
+  @include media-tablet {
+    width: 512px;
+    padding: 10px;
+    gap: 2px;
+  }
 }
 
 .keyboard__item {
@@ -37,26 +43,71 @@
   justify-content: space-between;
   @extend %transition;
 
+  @include media-desktop {
+    width: 45px;
+    height: 45px;
+  }
+  @include media-tablet {
+    width: 30px;
+    height: 30px;
+  }
+
   &_system {
     background: #333333;
   }
   &_first {
     width: 76px;
+    @include media-desktop {
+      width: 57px;
+    }
+    @include media-tablet {
+      width: 38px;
+    }
   }
   &_second {
     width: 92px;
+    @include media-desktop {
+      width: 69px;
+    }
+    @include media-tablet {
+      width: 46px;
+    }
   }
   &_third {
     width: 108px;
+    @include media-desktop {
+      width: 81px;
+    }
+    @include media-tablet {
+      width: 54px;
+    }
   }
   &_fourth {
     width: 124px;
+    @include media-desktop {
+      width: 93px;
+    }
+    @include media-tablet {
+      width: 62px;
+    }
   }
   &_fifth {
     width: 140px;
+    @include media-desktop {
+      width: 105px;
+    }
+    @include media-tablet {
+      width: 70px;
+    }
   }
   &_six {
     width: 396px;
+    @include media-desktop {
+      width: 297px;
+    }
+    @include media-tablet {
+      width: 198px;
+    }
   }
   &:active,
   &_shifted {
@@ -84,25 +135,40 @@
   display: block;
   width: 100%;
   height: 8px;
-  background: center no-repeat url("../img/icons/top.svg");
+  background: center no-repeat url("../img/icons/top0.svg");
+  border-radius: 3px;
+  background-size: cover;
+
+  @include media-desktop {
+    height: 6px;
+  }
+  @include media-tablet {
+    height: 4px;
+  }
 
   .keyboard__button_first & {
     background: center no-repeat url("../img/icons/top1.svg");
+    background-size: cover;
   }
   .keyboard__button_second & {
     background: center no-repeat url("../img/icons/top2.svg");
+    background-size: cover;
   }
   .keyboard__button_third & {
-    background: center no-repeat url("../img/icons/top3.svg");;
+    background: center no-repeat url("../img/icons/top3.svg");
+    background-size: cover;
   }
   .keyboard__button_fourth & {
-    background: center no-repeat url("../img/icons/top4.svg")
+    background: center no-repeat url("../img/icons/top4.svg");
+    background-size: cover;
   }
   .keyboard__button_fifth & {
     background: center no-repeat url("../img/icons/top5.svg");
+    background-size: cover;
   }
   .keyboard__button_six & {
-    background: center no-repeat url("../img/icons/top6.svg");;
+    background: center no-repeat url("../img/icons/top6.svg");
+    background-size: cover;
   }
 }
 
@@ -110,25 +176,40 @@
   display: block;
   width: 100%;
   height: 17px;
-  background: center no-repeat url("../img/icons/bottom.svg");
+  background: center no-repeat url("../img/icons/bottom0.svg");
+  border-radius: 3px;
+  background-size: cover;
+
+  @include media-desktop {
+    height: 13px;
+  }
+  @include media-tablet {
+    height: 9px;
+  }
 
   .keyboard__button_first & {
     background: center no-repeat url("../img/icons/bottom1.svg");
+    background-size: cover;
   }
   .keyboard__button_second & {
     background: center no-repeat url("../img/icons/bottom2.svg");
+    background-size: cover;
   }
   .keyboard__button_third & {
-    background: center no-repeat url("../img/icons/bottom3.svg");;
+    background: center no-repeat url("../img/icons/bottom3.svg");
+    background-size: cover;
   }
   .keyboard__button_fourth & {
     background: center no-repeat url("../img/icons/bottom4.svg");
+    background-size: cover;
   }
   .keyboard__button_fifth & {
-    background: center no-repeat url("../img/icons/bottom5.svg")
+    background: center no-repeat url("../img/icons/bottom5.svg");
+    background-size: cover;
   }
   .keyboard__button_six & {
-    background: center no-repeat url("../img/icons/bottom6.svg");;
+    background: center no-repeat url("../img/icons/bottom6.svg");
+    background-size: cover;
   }
 }
 
@@ -148,26 +229,81 @@
   border: 1px solid rgba(255, 255, 255, 0.30);
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.20) 100%);
 
+  @include media-desktop {
+    width: 33px;
+    height: 37px;
+    top: 2px;
+    left: 6px;
+    border-radius: 4px;
+    @include font("Inter", 1rem, 500, normal, normal);
+  }
+
+  @include media-tablet {
+    width: 22px;
+    height: 25px;
+    top: 1.5px;
+    left: 4px;
+    border-radius: 2.5px;
+    @include font("Inter", 1rem, 500, normal, normal);
+  }
+
   .keyboard__button_system & {
     font-size: 1.4rem;
+    font-size: 0.75rem;
   }
 
   .keyboard__button_first & {
     width: 60px;
+    @include media-desktop {
+      width: 45px;
+    }
+    @include media-tablet {
+      width: 30px;
+    }
   }
   .keyboard__button_second & {
     width: 76px;
+    @include media-desktop {
+      width: 57px;
+    }
+    @include media-tablet {
+      width: 38px;
+    }
   }
   .keyboard__button_third & {
     width: 92px;
+    @include media-desktop {
+      width: 69px;
+    }
+    @include media-tablet {
+      width: 46px;
+    }
   }
   .keyboard__button_fourth & {
     width: 108px;
+    @include media-desktop {
+      width: 81px;
+    }
+    @include media-tablet {
+      width: 54px;
+    }
   }
   .keyboard__button_fifth & {
     width: 124px;
+    @include media-desktop {
+      width: 93px;
+    }
+    @include media-tablet {
+      width: 62px;
+    }
   }
   .keyboard__button_six & {
     width: 380px;
+    @include media-desktop {
+      width: 285px;
+    }
+    @include media-tablet {
+      width: 190px;
+    }
   }
 }

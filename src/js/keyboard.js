@@ -123,7 +123,9 @@ class VirtualKeyboard {
   }
 
   handleKeyDown(e) {
-    e.preventDefault();
+    if (!e.ctrlKey) {
+      e.preventDefault();
+    }
     if ((e.code === 'AltLeft' && e.ctrlKey) || (e.code === 'ControlLeft' && e.altKey)) {
       this.changeLang();
     }

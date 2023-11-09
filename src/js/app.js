@@ -9,11 +9,14 @@ class App {
 
   renderElements() {
     this.decoration = new Background(this.body);
+    this.content = createElementWithProperties('div', 'content');
     this.keyboardList = createElementWithProperties('ul', 'keyboard');
     this.textarea = createElementWithProperties('textarea', 'keyboard-area', { rows: 5, cols: 60 });
-    this.body.append(this.decoration.renderElements());
-    this.body.append(this.textarea);
-    this.body.append(this.keyboardList);
+    this.title = createElementWithProperties('h1', 'layers__title');
+    this.title.innerText = 'Virtual Keyboard';
+
+    this.body.append(this.decoration.renderElements(), this.content);
+    this.content.append(this.title, this.textarea, this.keyboardList);
     this.virtualKeyboard = new VirtualKeyboard(this.keyboardList, this.textarea);
     this.virtualKeyboard.init();
   }
