@@ -144,10 +144,11 @@ class VirtualKeyboard {
   }
 
   handleKeyUp(e) {
-    e.preventDefault();
     for (let i = 0; i < this.keyboard.length; i += 1) {
       if (e.code === this.keyboard[i].name) {
-        this.keyboard[i].button.click();
+        if (!e.ctrlKey) {
+          this.keyboard[i].button.click();
+        }
         if (e.code !== 'CapsLock') this.keyboard[i].unpress();
         this.textarea.focus();
       }

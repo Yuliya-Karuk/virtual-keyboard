@@ -18,6 +18,12 @@
   }
 }
 
+.title {
+  @include font("Poppins", 5rem, 900, normal, normal);
+  color: $color-basic-white;
+  text-align: center;
+}
+
 .keyboard-area {
   padding: 24px;
   margin: 0 auto;
@@ -41,4 +47,10 @@
   @include media-mobile {
     font-size: 1.2rem;
   }
+}
+
+.description {
+  @include font("Poppins", 2rem, 900, normal, normal);
+  color: $color-basic-white;
+  text-align: center;
 }

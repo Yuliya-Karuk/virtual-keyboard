@@ -12,11 +12,12 @@ class App {
     this.content = createElementWithProperties('div', 'content');
     this.keyboardList = createElementWithProperties('ul', 'keyboard');
     this.textarea = createElementWithProperties('textarea', 'keyboard-area', { rows: 5, cols: 60 });
-    this.title = createElementWithProperties('h1', 'layers__title');
+    this.title = createElementWithProperties('h1', 'title');
     this.title.innerText = 'Virtual Keyboard';
-
+    const description = createElementWithProperties('p', 'description');
+    description.innerText = 'Keyboard for Windows, switch language - Ctrl + Alt';
     this.body.append(this.decoration.renderElements(), this.content);
-    this.content.append(this.title, this.textarea, this.keyboardList);
+    this.content.append(this.title, this.textarea, this.keyboardList, description);
     this.virtualKeyboard = new VirtualKeyboard(this.keyboardList, this.textarea);
     this.virtualKeyboard.init();
   }

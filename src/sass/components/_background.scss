@@ -6,12 +6,6 @@
   }
 }
 
-.layers__title {
-  @include font("Poppins", 5rem, 900, normal, normal);
-  color: $color-basic-white;
-  text-align: center;
-}
-
 .layers__list {
   height: 100vh;
   transform-style: preserve-3d;
