@@ -1,0 +1,48 @@
+.layers {
+  perspective: 1000px;
+  overflow: hidden;
+  @include media-mobile {
+    min-width: $mobile;
+  }
+}
+
+.layers__list {
+  height: 100vh;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: 1s cubic-bezier(0.05, 0.5, 0, 1);
+}
+
+.layer__item {
+  position: absolute;
+  top: -7vw;
+  bottom: -7vw;
+  right: -7vw;
+  left: -7vw;
+
+  display: flex;
+  justify-content: center;
+
+  background-size: cover;
+  background-position: center;
+
+  &_1 {
+    background-image: url("../img/layers/layer-1.jpg");
+    transform: translateZ(-50px);
+  }
+  &_2 {
+    background-image: url("../img/layers/layer-2.png");
+    transform: translateZ(50px);
+  }
+  &_3 {
+    transform: translateZ(100px);
+  }
+  &_4 {
+    background-image: url("../img/layers/layer-5.png");
+    transform: translateZ(150px);
+  }
+  &_5 {
+    background-image: url("../img/layers/layer-6.png");
+    transform: translateZ(220px);
+  }
+}
