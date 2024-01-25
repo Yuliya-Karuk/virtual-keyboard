@@ -1,0 +1,573 @@
+/*!**************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/sass/style.scss ***!
+  \**************************************************************************************************************/
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+}
+
+button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+input {
+  outline: none;
+  background-color: transparent;
+}
+
+textarea {
+  border: none;
+  outline: none;
+}
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.keyboard__button {
+  transition: all 0.2s ease-out;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #333333;
+}
+
+a {
+  cursor: pointer;
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 1024px) {
+  .content {
+    padding: 20px 0;
+  }
+}
+@media (max-width: 512px) {
+  .content {
+    width: unset;
+  }
+}
+
+.title {
+  font-family: "Poppins";
+  font-size: 5rem;
+  font-weight: 900;
+  line-height: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.keyboard-area {
+  padding: 24px;
+  margin: 0 auto;
+  display: block;
+  font-family: "Inter";
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  text-align: center;
+  color: #333333;
+  border-radius: 2vw;
+  background-color: rgba(255, 255, 255, 0.5);
+  resize: none;
+}
+@media (max-width: 1024px) {
+  .keyboard-area {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 768px) {
+  .keyboard-area {
+    font-size: 1.3rem;
+  }
+}
+@media (max-width: 512px) {
+  .keyboard-area {
+    font-size: 1.2rem;
+  }
+}
+
+.description {
+  font-family: "Poppins";
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.keyboard {
+  width: 1024px;
+  padding: 24px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  border-radius: 16px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  background: linear-gradient(97deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), url(1eb7907e0c8524d730ee.png);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.16), 0px 6px 24px 0px rgba(0, 0, 0, 0.14), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+@media (max-width: 1024px) {
+  .keyboard {
+    width: 768px;
+    padding: 17px;
+    gap: 3px;
+  }
+}
+@media (max-width: 768px) {
+  .keyboard {
+    width: 512px;
+    padding: 10px;
+    gap: 2px;
+  }
+}
+
+.keyboard__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.keyboard__button {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 3px;
+  background: #696969;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media (max-width: 1024px) {
+  .keyboard__button {
+    width: 45px;
+    height: 45px;
+  }
+}
+@media (max-width: 768px) {
+  .keyboard__button {
+    width: 30px;
+    height: 30px;
+  }
+}
+.keyboard__button_system {
+  background: #333333;
+}
+.keyboard__button_first {
+  width: 76px;
+}
+@media (max-width: 1024px) {
+  .keyboard__button_first {
+    width: 57px;
+  }
+}
+@media (max-width: 768px) {
+  .keyboard__button_first {
+    width: 38px;
+  }
+}
+.keyboard__button_second {
+  width: 92px;
+}
+@media (max-width: 1024px) {
+  .keyboard__button_second {
+    width: 69px;
+  }
+}
+@media (max-width: 768px) {
+  .keyboard__button_second {
+    width: 46px;
+  }
+}
+.keyboard__button_third {
+  width: 108px;
+}
+@media (max-width: 1024px) {
+  .keyboard__button_third {
+    width: 81px;
+  }
+}
+@media (max-width: 768px) {
+  .keyboard__button_third {
+    width: 54px;
+  }
+}
+.keyboard__button_fourth {
+  width: 124px;
+}
+@media (max-width: 1024px) {
+  .keyboard__button_fourth {
+    width: 93px;
+  }
+}
+@media (max-width: 768px) {
+  .keyboard__button_fourth {
+    width: 62px;
+  }
+}
+.keyboard__button_fifth {
+  width: 140px;
+}
+@media (max-width: 1024px) {
+  .keyboard__button_fifth {
+    width: 105px;
+  }
+}
+@media (max-width: 768px) {
+  .keyboard__button_fifth {
+    width: 70px;
+  }
+}
+.keyboard__button_six {
+  width: 396px;
+}
+@media (max-width: 1024px) {
+  .keyboard__button_six {
+    width: 297px;
+  }
+}
+@media (max-width: 768px) {
+  .keyboard__button_six {
+    width: 198px;
+  }
+}
+.keyboard__button:active, .keyboard__button_shifted {
+  transform: translateY(2px);
+  box-shadow: 0px 1px 2px 0px rgba(0, 255, 255, 0.7), 1px 2px 4px 0px rgba(0, 255, 255, 0.7), 1px 2px 4px 0px rgba(0, 255, 255, 0.7), 2px 4px 8px 0px rgba(0, 255, 255, 0.7);
+}
+
+.keyboard__top {
+  display: block;
+  width: 100%;
+  height: 8px;
+  background: center no-repeat url(626d44fa42749dc53b9a.svg);
+  border-radius: 3px;
+  background-size: cover;
+}
+@media (max-width: 1024px) {
+  .keyboard__top {
+    height: 6px;
+  }
+}
+@media (max-width: 768px) {
+  .keyboard__top {
+    height: 4px;
+  }
+}
+.keyboard__button_first .keyboard__top {
+  background: center no-repeat url(c1d546790c9b258df627.svg);
+  background-size: cover;
+}
+.keyboard__button_second .keyboard__top {
+  background: center no-repeat url(bb7e17683293cb4e0959.svg);
+  background-size: cover;
+}
+.keyboard__button_third .keyboard__top {
+  background: center no-repeat url(916e6e477a85305b36e3.svg);
+  background-size: cover;
+}
+.keyboard__button_fourth .keyboard__top {
+  background: center no-repeat url(eef4604b6782bfe8985d.svg);
+  background-size: cover;
+}
+.keyboard__button_fifth .keyboard__top {
+  background: center no-repeat url(58f5e1e58f4339b468a7.svg);
+  background-size: cover;
+}
+.keyboard__button_six .keyboard__top {
+  background: center no-repeat url(75d33e02ee06dc743c88.svg);
+  background-size: cover;
+}
+
+.keyboard__bottom {
+  display: block;
+  width: 100%;
+  height: 17px;
+  background: center no-repeat url(3b60335e38700fa998c2.svg);
+  border-radius: 3px;
+  background-size: cover;
+}
+@media (max-width: 1024px) {
+  .keyboard__bottom {
+    height: 13px;
+  }
+}
+@media (max-width: 768px) {
+  .keyboard__bottom {
+    height: 9px;
+  }
+}
+.keyboard__button_first .keyboard__bottom {
+  background: center no-repeat url(d1b2ebc1f4325688943d.svg);
+  background-size: cover;
+}
+.keyboard__button_second .keyboard__bottom {
+  background: center no-repeat url(0abd10b7c6cb2b1b64b6.svg);
+  background-size: cover;
+}
+.keyboard__button_third .keyboard__bottom {
+  background: center no-repeat url(c115d3b2b1a7d5a9df55.svg);
+  background-size: cover;
+}
+.keyboard__button_fourth .keyboard__bottom {
+  background: center no-repeat url(9b4b18bf786b438b3095.svg);
+  background-size: cover;
+}
+.keyboard__button_fifth .keyboard__bottom {
+  background: center no-repeat url(1eee0afd227be090264f.svg);
+  background-size: cover;
+}
+.keyboard__button_six .keyboard__bottom {
+  background: center no-repeat url(063b6234a51e3d18ff3c.svg);
+  background-size: cover;
+}
+
+.keyboard__label {
+  position: absolute;
+  top: 3px;
+  left: 8px;
+  width: 44px;
+  height: 50px;
+  padding-top: 5px;
+  font-family: "Inter";
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  text-align: center;
+  color: #FFFFFF;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.2) 100%);
+}
+@media (max-width: 1024px) {
+  .keyboard__label {
+    width: 33px;
+    height: 37px;
+    top: 2px;
+    left: 6px;
+    border-radius: 4px;
+    font-family: "Inter";
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: normal;
+    text-transform: none;
+  }
+}
+@media (max-width: 768px) {
+  .keyboard__label {
+    width: 22px;
+    height: 25px;
+    top: 1.5px;
+    left: 4px;
+    border-radius: 2.5px;
+    font-family: "Inter";
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: normal;
+    text-transform: none;
+  }
+}
+.keyboard__button_system .keyboard__label {
+  font-size: 1.4rem;
+}
+@media (max-width: 1024px) {
+  .keyboard__button_system .keyboard__label {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 768px) {
+  .keyboard__button_system .keyboard__label {
+    font-size: 0.75rem;
+  }
+}
+.keyboard__button_first .keyboard__label {
+  width: 60px;
+}
+@media (max-width: 1024px) {
+  .keyboard__button_first .keyboard__label {
+    width: 45px;
+  }
+}
+@media (max-width: 768px) {
+  .keyboard__button_first .keyboard__label {
+    width: 30px;
+  }
+}
+.keyboard__button_second .keyboard__label {
+  width: 76px;
+}
+@media (max-width: 1024px) {
+  .keyboard__button_second .keyboard__label {
+    width: 57px;
+  }
+}
+@media (max-width: 768px) {
+  .keyboard__button_second .keyboard__label {
+    width: 38px;
+  }
+}
+.keyboard__button_third .keyboard__label {
+  width: 92px;
+}
+@media (max-width: 1024px) {
+  .keyboard__button_third .keyboard__label {
+    width: 69px;
+  }
+}
+@media (max-width: 768px) {
+  .keyboard__button_third .keyboard__label {
+    width: 46px;
+  }
+}
+.keyboard__button_fourth .keyboard__label {
+  width: 108px;
+}
+@media (max-width: 1024px) {
+  .keyboard__button_fourth .keyboard__label {
+    width: 81px;
+  }
+}
+@media (max-width: 768px) {
+  .keyboard__button_fourth .keyboard__label {
+    width: 54px;
+  }
+}
+.keyboard__button_fifth .keyboard__label {
+  width: 124px;
+}
+@media (max-width: 1024px) {
+  .keyboard__button_fifth .keyboard__label {
+    width: 93px;
+  }
+}
+@media (max-width: 768px) {
+  .keyboard__button_fifth .keyboard__label {
+    width: 62px;
+  }
+}
+.keyboard__button_six .keyboard__label {
+  width: 380px;
+}
+@media (max-width: 1024px) {
+  .keyboard__button_six .keyboard__label {
+    width: 285px;
+  }
+}
+@media (max-width: 768px) {
+  .keyboard__button_six .keyboard__label {
+    width: 190px;
+  }
+}
+
+.layers {
+  perspective: 1000px;
+  overflow: hidden;
+}
+@media (max-width: 512px) {
+  .layers {
+    min-width: 512px;
+  }
+}
+
+.layers__list {
+  height: 100vh;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: 1s cubic-bezier(0.05, 0.5, 0, 1);
+}
+
+.layer__item {
+  position: absolute;
+  top: -7vw;
+  bottom: -7vw;
+  right: -7vw;
+  left: -7vw;
+  display: flex;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+}
+.layer__item_1 {
+  background-image: url(246285c27090fae95e32.jpg);
+  transform: translateZ(-50px);
+}
+.layer__item_2 {
+  background-image: url(9ca0471e7c9efc1f8d27.png);
+  transform: translateZ(50px);
+}
+.layer__item_3 {
+  transform: translateZ(100px);
+}
+.layer__item_4 {
+  background-image: url(eac74c2031bd310a7782.png);
+  transform: translateZ(150px);
+}
+.layer__item_5 {
+  background-image: url(35edcb87611e547f6ec4.png);
+  transform: translateZ(220px);
+}
+
+/*# sourceMappingURL=style.css.map*/
